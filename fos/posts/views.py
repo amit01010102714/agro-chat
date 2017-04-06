@@ -29,6 +29,10 @@ def post_list(request):
 	return render(request,"post_list.html",context)
 
 def post_create(request):
+	if not request.user.is_staff or not request.user.is_superuser:
+		context = {}
+		return render(request,"sorry2.html",context)
+
 	form = PostForm(request.POST or None, request.FILES or None)
 	if form.is_valid():
 		instance = form.save(commit=False)
@@ -48,13 +52,19 @@ def post_detail(request,slug=None):
 	return render(request,"post_detail.html",context)
 
 def post_delete(request,slug=None):
+	if not request.user.is_superuser:
+		context = {}
+		return render(request,"sorry.html",context)
+
 	instance = get_object_or_404(Post,slug=slug)
 	messages.success(request,"deleted")
 	instance.delete()
 	return redirect("list")
 
 def post_update(request, slug):
-
+	if not request.user.is_superuser:
+		context = {}
+		return render(request,"sorry1.html",context)
 	instance = get_object_or_404(Post,slug=slug)
 	form = PostForm(request.POST or None, request.FILES or None, instance=instance )
 	if form.is_valid():

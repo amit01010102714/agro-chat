@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Fos</title>
+    <title>Agro</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{% static "a/vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
@@ -44,7 +44,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="/home">Fraternity of seekers</a>
+                <a class="navbar-brand page-scroll" href="/home">Agro Chat</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -54,19 +54,17 @@
                         <a class="page-scroll" href="/home">Home</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="/about">About</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="/post">Post</a>
                     </li>
+
                     <li>
-                        <a class="page-scroll" href="#portfolio">Gallary</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="/contact">Contact</a>
                     </li>
 					<li>
-                        <a class="page-scroll" href="#contact">Login</a>
+                        <a class="page-scroll" href="/admin">Login</a>
                     </li>
 
                 </ul>
@@ -76,7 +74,7 @@
         <!-- /.container-fluid -->
     </nav>
 
-<header>
+<header >
 
         <div class="header-content">
             <div class="header-content-inner">
@@ -90,7 +88,7 @@
     <article>
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 content-markdown"><br><br><br>
               <img src="{{instance.image.url}}" class="img-responsive"><br>
                     <p>{{instance.content}}</p><a class="btn btn-warning" href="/post/{{instance.slug}}/edit/">
   <i class="fa fa-edit fa-lg" aria-hidden="true"></i> Edit</a> 
@@ -126,7 +124,7 @@ Linkedin
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <ul class="list-inline text-center">
                         <li>
-                            <a href="#">
+                            <a href="https://twitter.com/">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -134,7 +132,7 @@ Linkedin
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://www.facebook.com/">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -142,7 +140,7 @@ Linkedin
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://www.github.com/">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -150,11 +148,12 @@ Linkedin
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; Fraternity of Seekers 2016</p>
+                    <p class="copyright text-muted">Copyright &copy; Agro Chat 2017</p>
                 </div>
             </div>
         </div>
     </footer>
+
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -166,6 +165,7 @@ Linkedin
 }(document, 'script', 'facebook-jssdk'));</script>
 
     <!-- jQuery -->
+    <script   src="http://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
     <script src="{% static "a/vendor/jquery/jquery.min.js" %}"></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -178,7 +178,18 @@ Linkedin
 
     <!-- Theme JavaScript -->
     <script src="{% static "a/js/creative.min.js" %}"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+<script type="text/javascript">
+    $document.ready(function(){
+        $(".content-markdown").each(function(){
+        var content = $(this).text()
+        console.log(content)
+        var markedContent = marked(content)
+        console.log(markedContent)
+        $(this).html(markedContent)    
+        })
+        })
+</script>
 </body>
 
 </html>

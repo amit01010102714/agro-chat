@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^post/', include("posts.urls")),
     url(r'^contact/', include("contact.urls")),
+
 ]
 
 if settings.DEBUG:

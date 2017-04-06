@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Fos</title>
+    <title>Agro</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{% static "a/vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
@@ -37,6 +38,9 @@
 </head>
 
 <body id="page-top">
+{% block head_extra %}
+{{form.media}}
+ {% endblock head_extra %}
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -45,7 +49,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="/home">Fraternity of seekers</a>
+                <a class="navbar-brand page-scroll" href="/home">Agro Chat</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -55,19 +59,17 @@
                         <a class="page-scroll" href="/home">Home</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="/about">About</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="/post">Post</a>
                     </li>
+
                     <li>
-                        <a class="page-scroll" href="#portfolio">Gallary</a>
+                        <a class="page-scroll" href="/contact">Contact</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Login</a>
+                        <a class="page-scroll" href="/admin">Login</a>
                     </li>
 
                 </ul>
@@ -91,7 +93,7 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <form method="POST" action="" enctype="multipart/form-data">
 {% csrf_token %}
-{{form.as_p}}
+{{form|crispy}}
 <input type="Reset" name="Reset">
 <input type="submit" name="create post">
 </form>
@@ -107,7 +109,7 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <ul class="list-inline text-center">
                         <li>
-                            <a href="#">
+                            <a href="https://twitter.com/">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -115,7 +117,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://www.facebook.com/">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -123,7 +125,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://www.github.com/">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -131,11 +133,13 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; Fraternity of Seekers 2016</p>
+                    <p class="copyright text-muted">Copyright &copy; Agro Chat 2017</p>
                 </div>
             </div>
         </div>
     </footer>
+
+
 
 
 

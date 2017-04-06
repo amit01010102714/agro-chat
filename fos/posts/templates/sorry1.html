@@ -24,7 +24,7 @@
     <link href="{% static "a/vendor/magnific-popup/magnific-popup.css" %}" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="{% static "a/css/post.css" %}" rel="stylesheet">
+    <link href="{% static "a/css/creative.css" %}" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,7 +32,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-{% block head_extra %} {% endblock head_extra %}
+
 </head>
 
 <body id="page-top">
@@ -44,7 +44,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="/home">Agro Chat</a>
+                <a class="navbar-brand page-scroll" href="/home">Agro chat</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -59,11 +59,10 @@
                     <li>
                         <a class="page-scroll" href="/post">Post</a>
                     </li>
-
-                    <li>
+                     <li>
                         <a class="page-scroll" href="/contact">Join Us</a>
                     </li>
-					<li>
+                    <li>
                         <a class="page-scroll" href="/admin">Login</a>
                     </li>
                 </ul>
@@ -73,51 +72,21 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <header>
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1 id="homeHeading">Agro Chat</h1>
-                <hr id=l>
-                <p>If you share an idea or a way of doing something with other people, just the act of writing it down - of putting it into words - improves it. And verbalizing it enables other people to access it, add to it and further improve it. In the end, you end up with a be</p>
-                <a href="/post/create" class="btn btn-primary btn-xl page-scroll">Add your Post</a>
+
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Sorry, You need to login us  for edit your post. Click link below for login.
+</h2>
+                    <hr class="light">
+                    <p class="text-faded"></p>
+                    <a href="/admin" class="page-scroll btn btn-default btn-xl sr-button"   >Login</a><br><br><br><br>
+                    
+                </div>
             </div>
         </div>
-    </header>
-<!-- Main Content -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            {% for obj in object_list %}
-                <div class="post-preview">
-                    <a href="{{ obj.get_absolute_url}}">
-                        <h2 class="post-title">{{obj.title}}
-                        </h2>
-                        <h3 class="post-subtitle">
-                          {{obj.short_desc}}
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">{{ obj.user }}</a> , {{obj.timestamp|timesince}} ago</p>
-                </div>
-                <hr>
-                {% endfor %}
-
-   <center> 
-<div class="pagination">
-    <span class="step-links">
-        {% if object_list.has_previous %}
-            <a href="?page={{ object_list.previous_page_number }}" class="btn btn-info" type="button">previous</a>
-        {% endif %}
-
-        <span class="current">
-            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
-        </span>
-
-        {% if object_list.has_next %}
-            <a href="?page={{ object_list.next_page_number }}" class="btn btn-info" type="button">next</a>
-        {% endif %}
-    </span>
-</div> </center>
-</div></div></div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -150,15 +119,11 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; Agro Chat 2017</p>
+            <center>        <p class="copyright text-muted">Copyright &copy; Agro Chat 2017</p></center>
                 </div>
             </div>
         </div>
     </footer>
-
-
-
-
 
     <!-- jQuery -->
     <script src="{% static "a/vendor/jquery/jquery.min.js" %}"></script>

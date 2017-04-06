@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Fos</title>
+    <title>Agro</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{% static "a/vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
@@ -44,7 +45,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="/home">Fraternity of seekers</a>
+                <a class="navbar-brand page-scroll" href="/home">Agro Chat</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -54,19 +55,17 @@
                         <a class="page-scroll" href="/home">Home</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="/about">About</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="/post">Post</a>
                     </li>
+
                     <li>
-                        <a class="page-scroll" href="#portfolio">Gallary</a>
+                        <a class="page-scroll" href="/contact">Join Us</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Login</a>
+                        <a class="page-scroll" href="/admin">Login</a>
                     </li>
 
                 </ul>
@@ -85,11 +84,11 @@
     </header>
     <!-- Post Content -->   
     <div class="col-md-8">
-          <h1>Contact Us</h1><br>
-          <h4>We are happy to answer any questions you have or provide you with an estimate.Just send us a message in the form below with any question you may have.</h4><br>
+          <h1>Join Us</h1><br>
+          <h4>We are happy to answer any questions you have or provide you with an estimate or if u want join us.Just send us a message in the form below with any question you may have.We will reply to all support quaries within 24 hours. </h4><br>
           <form method="POST" action="">
 {% csrf_token %}
-{{form.as_p}}
+{{form|crispy}}
 <input type="Reset" name="Reset">
 <input type="submit" name="create post">
 </form>
@@ -104,7 +103,7 @@
         <div class="col-md-3">
 
           <br><br><br><br><br>
-          <p><strong>Address</strong><br>RPVV,<br>Lajpat Nagar,<br>New Delhi,<br>Delhi,110036<br><br><strong>Give us call</strong><br>+91-95123213312<br>+91-951232134243<br><br><strong>Send us a note</strong><br>fos_world@gmial.com</p>
+          <p><strong>Address</strong><br>AIACT&R,<br>Geeta colony,<br>New Delhi,<br>Delhi,110031<br><br><strong>Give us call</strong><br>+91-9650358508<br>+91-9953465222<br><br><strong>Send us a note</strong><br>agrochat_world@agrochat.com</p>
         </div>
 
     <article>
@@ -116,8 +115,8 @@
     </article>    <hr>
     <!-- Map -->
            <br>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.9721339005805!2d77.23416991474797!3d28.570599482442212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2524afd65a3%3A0xfd3486ef0c7a9a9d!2sLajpat+Nagar+Metro+Station%2C+Lala+Lajpat+Rai+Rd%2C+Lajpat+Nagar%2C+New+Delhi%2C+Delhi+110024%2C+India!5e0!3m2!1sen!2sus!4v1473317564803" width="100%" height="50%" frameborder="0" style="border:0" allowfullscreen></iframe>
 
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.167762152125!2d77.26635231463055!3d28.654695089829293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfc944ec6b523%3A0xd8bf72d453dbf662!2sAmbedkar+Institute+of+Advanced+Communication+Technologies+and+Research!5e0!3m2!1sen!2sin!4v1491460498890" width="100%" height="50%" frameborder="0" style="border:0" allowfullscreen></iframe>
     </section>
 
 
@@ -128,7 +127,7 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <ul class="list-inline text-center">
                         <li>
-                            <a href="#">
+                            <a href="https://twitter.com/">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -136,7 +135,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://www.facebook.com/">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -144,7 +143,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://www.github.com/">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -152,7 +151,7 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; Fraternity of Seekers 2016</p>
+                    <p class="copyright text-muted">Copyright &copy; Agro Chat 2017</p>
                 </div>
             </div>
         </div>
